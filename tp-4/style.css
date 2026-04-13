@@ -1,0 +1,9 @@
+@media (min-width: 400px) {
+#cuerpo { background-color: rgb(40,60,80) }
+}
+@media (max-width: 800px) {
+#cuerpo h1 { align-self: center }
+}
+@media (orientation: landscape) {
+    article {max-width: 50ch}
+}
