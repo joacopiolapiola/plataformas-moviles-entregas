@@ -7,3 +7,28 @@
 @media (orientation: landscape) {
     article {max-width: 50ch}
 }
+@media (min-height: 200px) {
+#cuerpo h1 { background-color: brown; }
+}
+@media print {
+p {font-family: serif}    
+}
+
+@media (prefers-color-scheme: light){
+    #body { background-color: #DDD;
+        color: #111;}
+    h1 { background-color: #DDD;
+        color: #111;}}
+
+@media  screen and (hover:none) {
+    a  { color: #212;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          padding-right: 5px;
+          padding-left: 5px;
+    } 
+}
+
+@media screen and (max-width: 900px) and (min-width: 800px){
+    img {display: none;}
+}
