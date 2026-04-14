@@ -32,3 +32,14 @@ p {font-family: serif}
 @media screen and (max-width: 900px) and (min-width: 800px){
     img {display: none;}
 }
+
+@media screen and (200px>width>400px){
+
+    img {height: 400px;
+        object-fit: cover;}
+
+}
+
+@media (-webkit-min-device-pixel-ratio: 2){
+    article {background-color: #667;}
+}
