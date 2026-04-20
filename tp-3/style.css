@@ -15,4 +15,6 @@ a{ outline: 1px solid #333}
 body p.fuente.parrafo {opacity: 100% !important;
                         color: #000}
 
-.\.complicado {color:#c62; font-weight: bold;  }
+#mascomplicado.complicado {color:#c62; font-weight: bold;  }
+
+#fuenteparrafo { text-align: center;}
