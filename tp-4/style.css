@@ -1,8 +1,8 @@
-@media (min-width: 400px) {
+@media (max-width: 400px) {
 #cuerpo { background-color: rgb(40,60,80) }
 }
 @media (max-width: 800px) {
-#cuerpo h1 { align-self: center }
+#cuerpo h1 { text-align: center }
 }
 @media (orientation: landscape) {
     article {max-width: 50ch}
@@ -20,8 +20,8 @@ p {font-family: serif}
     h1 { background-color: #DDD;
         color: #111;}}
 
-@media  screen and (hover:none) {
-    a  { color: #212;
+@media screen and (hover:none) {
+   body a  { color: #212;
           padding-top: 2px;
           padding-bottom: 2px;
           padding-right: 5px;
@@ -29,8 +29,8 @@ p {font-family: serif}
     } 
 }
 
-@media screen and (max-width: 900px) and (min-width: 800px){
-    img {display: none;}
+@media screen and (min-width: 800px) and (max-width: 900px){
+   #cuerpo figure img {display: none;}
 }
 
 @media screen and (max-width: 400px) and (min-width: 200px){
@@ -40,6 +40,6 @@ p {font-family: serif}
 
 }
 
-@media (-webkit-min-device-pixel-ratio: 2){
-    article {background-color: #667;}
+@media screen and (min-resolution: 2dppx) {
+    body article {background-color: #667;}
 }
