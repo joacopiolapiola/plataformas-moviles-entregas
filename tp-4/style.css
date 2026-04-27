@@ -21,7 +21,7 @@ p {font-family: serif}
         color: #111;}}
 
 @media screen and (hover:none) {
-   body a  { color: #212;
+   body a  { background-color: #212;
           padding-top: 2px;
           padding-bottom: 2px;
           padding-right: 5px;
