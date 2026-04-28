@@ -145,10 +145,7 @@ console.log(clasificarNumero(0)); // "El número 0 es par y no positivo."
 // ejemplo: transformarMayuscula("Plataformas Móviles") retorna "PLATAFORMAS MÓVILES"
 
 function transformarMayuscula(palabra) {
-    letra=palabra[0];
-    resultado=letra.toUpperCase;
-    let result = `${resultado}${menosuna}`; 
-    return  ;
+	return palabra.charAt(0).toUpperCase() + palabra.slice(1);
 }
 
 console.log("Resultados de transformarMayuscula():")
