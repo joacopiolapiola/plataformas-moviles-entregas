@@ -155,7 +155,7 @@ console.log("crearListaDeNumeros(2,5): ", crearListaDeNumeros(2,5))
  * - ordenarDeMayorAMenor([2,-1,4]) retorna [4,2,-1]
  */
 function ordenarDeMayorAMenor(listaDeNumeros) {
-    //
+    return listaDeNumeros.sort((a, b) => a - b);
 }
 console.log("ordenarDeMayorAMenor([2,3,4]): ", ordenarDeMayorAMenor([2,3,4]))
 console.log("ordenarDeMayorAMenor(listaNumerosEjemplo): ", ordenarDeMayorAMenor(listaNumerosEjemplo))
@@ -174,7 +174,13 @@ console.log("ordenarDeMayorAMenor(listaNumerosEjemplo): ", ordenarDeMayorAMenor(
  * - encontrarNumeroMayor([2,3,4]) retorna 4
  */
 function encontrarNumeroMayor(listaDeNumeros) {
-    //
+    let cont=0;
+  for(let i=0;i=listaDeNumeros.len;i++){
+    if(cont<listaDeNumeros[i]){
+      cont=listaDeNumeros[i];
+    }
+  }
+  return cont;
 }
 console.log("encontrarNumeroMayor([2,3,4]): ", encontrarNumeroMayor([2,3,4]))
 console.log("encontrarNumeroMayor(listaNumerosEjemplo): ", encontrarNumeroMayor(listaNumerosEjemplo))
@@ -193,7 +199,7 @@ console.log("encontrarNumeroMayor(listaNumerosEjemplo): ", encontrarNumeroMayor(
  * - ordenarPalabrasPorLongitud(['abc', 'a', 'ab']) retorna ['a', 'ab', 'abc']
  */
 function ordenarPalabrasPorLongitud(listaDePalabras) {
-    //
+return listaDePalabras.sort((a, b) => b.length - a.length);
 }
 console.log("ordenarPalabrasPorLongitud(['abc', 'a', 'ab']): ", ordenarPalabrasPorLongitud(['abc', 'a', 'ab']))
 
@@ -211,7 +217,14 @@ console.log("ordenarPalabrasPorLongitud(['abc', 'a', 'ab']): ", ordenarPalabrasP
  * - encontrarPalabraMasCorta(['abc', 'a', 'ab', 'c']) retorna 'a'
  */
 function encontrarPalabraMasCorta(listaDePalabras) {
-    //
+    let cont="";
+  for(let i=0; i=listaDePalabras.len; i++){
+    
+    if(listaDePalabras[i].length<cont.length){
+      cont=listaDePalabras[i];
+    }
+  }
+  return cont;
 }
 console.log("encontrarPalabraMasCorta(['abc', 'a', 'ab']): ", encontrarPalabraMasCorta(['abc', 'a', 'ab']))
 
@@ -229,7 +242,8 @@ console.log("encontrarPalabraMasCorta(['abc', 'a', 'ab']): ", encontrarPalabraMa
  * - filtrarSoloPositivos([1,-1,2]) retorna [1,2]
  */
 function filtrarSoloPositivos(listaDeNumeros) {
-    //
+    lista=[];
+  
 }
 console.log("filtrarSoloPositivos([1,-1,0]): ", filtrarSoloPositivos([1,-1,0]))
 console.log("filtrarSoloPositivos(listaNumerosEjemplo): ", filtrarSoloPositivos(listaNumerosEjemplo))
