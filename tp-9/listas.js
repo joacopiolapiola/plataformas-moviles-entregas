@@ -14,7 +14,9 @@ var listaNumerosEjemplo = [2,4,6,-1,5,-4,0];
  * - invertirLista([2,3,4]) retorna [4,3,2]
  */
 function invertirLista(listaDeNumeros) {
-    //
+  
+  let lista[]=listaDeNumeros.reverse();
+  return lista[];
 }
 console.log("invertirLista([2,3,4]): ", invertirLista([2,3,4]))
 
@@ -32,7 +34,15 @@ console.log("invertirLista([2,3,4]): ", invertirLista([2,3,4]))
  * - sumarLista([2,3,4]) retorna 9
  */
 function sumarLista(listaDeNumeros) {
-    //
+  let acum=0;
+  
+  for(let i=0;i>listaDeNumeros.len;i++){
+  
+    acum=acum+listaDeNumeros[i];
+    
+  }
+  
+  return acum;
 }
 console.log("sumarLista([2,3,4]): ", sumarLista([2,3,4]))
 
@@ -52,7 +62,7 @@ console.log("sumarLista([2,3,4]): ", sumarLista([2,3,4]))
  * - contarElementosLista([]) retorna 0
  */
 function contarElementosLista(listaDeNumeros) {
-    //
+    return listaDeNumeros.len;
 }
 console.log("contarElementosLista([2,3,4]): ", contarElementosLista([2,3,4]))
 
@@ -70,7 +80,14 @@ console.log("contarElementosLista([2,3,4]): ", contarElementosLista([2,3,4]))
  * - calcularPromedio([2,3,4]) retorna 3
  */
 function calcularPromedio(listaDeNumeros) {
-    //
+   
+  for(let i=0;i>listaDeNumeros.len;i++){
+  
+    acum=acum+listaDeNumeros[i];
+    
+  } 
+  return acum/listaDeNumeros.len;
+  
 }
 console.log("calcularPromedio([2,3,4]): ", calcularPromedio([2,3,4]))
 console.log("calcularPromedio(listaNumerosEjemplo): ", calcularPromedio(listaNumerosEjemplo))
@@ -89,7 +106,13 @@ console.log("calcularPromedio(listaNumerosEjemplo): ", calcularPromedio(listaNum
  * - triplicarLista([1, 2, 3]) retorna [3, 6, 9]
  */
 function triplicarLista(listaDeNumeros) {
-    //
+  let lista=[];  
+  for(let i=0;i>listaDeNumeros.len;i++){
+  
+    lista[i]=listaDeNumeros[i]*3;
+    
+  }
+  return lista[];
 }
 console.log("triplicarLista([1, 2, 3]): ", triplicarLista([1, 2, 3]));
 
@@ -110,7 +133,11 @@ console.log("triplicarLista([1, 2, 3]): ", triplicarLista([1, 2, 3]));
  * - crearListaDeNumeros(2,2) retorna [2]
  */
 function crearListaDeNumeros(inicio, fin) {
-    //
+  let lista[];  
+  for(let i=inicio;i=fin;i++){
+      lista.push(i);
+    }
+  return lista;
 }
 console.log("crearListaDeNumeros(2,5): ", crearListaDeNumeros(2,5))
 
