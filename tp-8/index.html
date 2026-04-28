@@ -13,7 +13,7 @@
 // 1- Implementar una función "suma" que retorne la suma de 2 numeros
 // ejemplo: suma(2,3) retorna 5
 function suma(num1, num2) {
-    // return num1 + num2;
+     return num1 + num2;
 }
 
 console.log("Resultados de suma():")
@@ -25,6 +25,11 @@ console.log(suma(-10,10)); // 0
 // 2- Implementar una función "elevarAlCubo" que eleve al cubo un numero
 // ejemplo: elevarAlCubo(3) retorna 27
 
+    function elevarAlCubo(num) {
+        return num*num*num;
+    
+}
+
 console.log("Resultados de elevarAlCubo():")
 console.log(elevarAlCubo(3)); // 27
 console.log(elevarAlCubo(99)); // 970299
@@ -32,15 +37,23 @@ console.log(elevarAlCubo(99)); // 970299
 // 3- Implementar una función "restoDivisionEntera" para devolver el resto de una división entera entre un dividendo y un divisor
 // ejemplo: restoDivisionEntera(3,2) retorna 1
 
+    function restoDivisionEntera(num1, num2) {
+        return num1%num2;
+    
+}
+
 console.log("Resultados de restoDivisionEntera():")
 console.log(restoDivisionEntera(1,3)); // 1
 console.log(restoDivisionEntera(2,3)); // 2
 console.log(restoDivisionEntera(3,3)); // 0
 console.log(restoDivisionEntera(4,3)); // 1
 
-
 // 4- Implementar una función "numeroPi" para devolver el numero PI
 // ejemplo: numeroPi() retorna 3,14...
+
+function numeroPi(){
+    return 3.1415;
+}
 
 console.log("Resultado de numeroPi():")
 console.log(numeroPi())
@@ -48,6 +61,13 @@ console.log(numeroPi())
 
 // 5- Implementar una función "numeroRandom" para devolver un número random (aleatorio)
 // ejemplo: numeroRandom() retorna 0,123...
+ 
+
+                ///puede estar mall
+function numeroRandom(){
+    return Math.random();
+}
+
 
 console.log("Resultados de numeroRandom():")
 console.log(numeroRandom())
@@ -58,6 +78,10 @@ console.log(numeroRandom())
 // 6- Implementar una función "numeroRandomDesdeHasta" para devolver un número random entre 2 valores recibidos como parámetros
 // ejemplo: numeroRandomDesdeHasta(1,6) retorna 3
 
+function numeroRandomDesdeHasta(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 console.log("Resultados de numeroRandomDesdeHasta():")
 console.log(numeroRandomDesdeHasta(1,6))
 console.log(numeroRandomDesdeHasta(2,5))
@@ -66,6 +90,10 @@ console.log(numeroRandomDesdeHasta(3,4))
 
 // 7- Implementar una función "esPar" que reciba un número como parámetro y devuelva verdadero si el número es par, o falso si es impar
 // ejemplo: esPar(4) retorna true, esPar(5) retorna false
+
+function esPar(numero) {
+    return numero % 2 === 0; 
+}
 
 console.log("Resultados de esPar():")
 console.log(esPar(4)); // true
@@ -77,6 +105,10 @@ console.log(esPar(-2)); // true
 // 8- Implementar una función "esPositivo" que reciba un número y devuelva true si el número es positivo, o false si es negativo o cero
 // ejemplo: esPositivo(4) retorna true, esPositivo(-3) retorna false
 
+function esPositivo(numero) {
+    return numero > 0 ;
+}
+
 console.log("Resultados de esPositivo():")
 console.log(esPositivo(4)); // true
 console.log(esPositivo(-3)); // false
@@ -86,6 +118,22 @@ console.log(esPositivo(0)); // false
 // ejemplo: clasificarNumero(4) retorna "El número 4 es par y positivo."
 // ejemplo: clasificarNumero(-3) retorna "El número -3 es impar y negativo."
 
+function clasificarNumero(numero) {
+    let clasificado;
+    if (numero<0) {
+        clasificado="negativo";
+    }else{
+        clasificado="positivo";
+    }
+    if (numero%2===0) {
+        clasificado=clasificado+" y par";
+    }else{
+        clasificado=clasificado+" e impar";
+    }
+    return clasificado;
+}
+
+ 
 console.log("Resultados de clasificarNumero():")
 console.log(clasificarNumero(4)); // "El número 4 es par y positivo."
 console.log(clasificarNumero(-3)); // "El número -3 es impar y negativo."
@@ -95,6 +143,13 @@ console.log(clasificarNumero(0)); // "El número 0 es par y no positivo."
 
 // 10- Implementar una función "transformarMayuscula" que transforme a mayúscula la cadena de caracteres recibida como parámetro
 // ejemplo: transformarMayuscula("Plataformas Móviles") retorna "PLATAFORMAS MÓVILES"
+
+function transformarMayuscula(palabra) {
+    letra=palabra[0];
+    resultado=letra.toUpperCase;
+    let result = `${resultado}${menosuna}`; 
+    return  ;
+}
 
 console.log("Resultados de transformarMayuscula():")
 console.log(transformarMayuscula("Plataformas Móviles"))
