@@ -35,7 +35,7 @@ p {font-family: serif}
 
 @media screen and (max-width: 400px) and (min-width: 200px){
 
-    img {height: 400px;
+    figure img {height: 400px;
         object-fit: cover;}
 
 }
