@@ -27,7 +27,13 @@ var personaEjemplo = {
  * }
  */
 function crearPersona(nombre, apellido, edad, documento) {
-    // 
+    var persona = {
+    Nombre: String(nombre),
+    Apellido: String(apellido),
+    Edad: +edad,
+    Documento: +documento
+};
+return persona;
 }
 console.log("resultado crearPersona: ", crearPersona("Juan", "Pérez", 20, 123456));
 
@@ -42,8 +48,10 @@ console.log("resultado crearPersona: ", crearPersona("Juan", "Pérez", 20, 12345
  * Retorna: 
  * - un objeto, representando a la misma persona recibida, pero con un nuevo campo 'apodo'.
  */
+
 function agregarApodo(persona, apodo) {
-    // 
+    persona.Apodo=String(apodo);
+    return persona;
 }
 console.log("resultado agregarApodo: ", agregarApodo(personaEjemplo, "JuanPe"));
 
@@ -58,7 +66,8 @@ console.log("resultado agregarApodo: ", agregarApodo(personaEjemplo, "JuanPe"));
  * - un objeto, representando a la misma persona recibida, pero sin el campo documento.
  */
 function sinDocumento(persona) {
-    // 
+     delete persona.Documento;
+     return persona;
 }
 console.log("resultado sinDocumento: ", sinDocumento(personaEjemplo));
 
@@ -72,9 +81,11 @@ console.log("resultado sinDocumento: ", sinDocumento(personaEjemplo));
  * Retorna: 
  * - un valor boolean ('true' o 'false'), indicando si la propiedad 'documento' existe en el objeto recibido.
  */
+
 function tieneDocumento(persona) {
-    // 
+if(persona.Documento =! null){  return true; } else { return false;}
 }
+
 console.log("resultado tieneDocumento: ", tieneDocumento(personaEjemplo));
 
 
@@ -88,7 +99,8 @@ console.log("resultado tieneDocumento: ", tieneDocumento(personaEjemplo));
  * - un string, con el nombre completo de una persona. Asumimos que nombre completo tiene el formato "Apellido, Nombre". Por ejemplo para una persona con nombre "Juan" y apellido "Pérez", el nombre completo sería "Pérez, Juan".
  */
 function nombreCompletoDePersona(persona) {
-    // 
+    var nombrecompleto = String(persona.Apellido + persona.Nombre); 
+    return nombrecompleto;
 }
 console.log("resultado nombreCompletoDePersona: ", nombreCompletoDePersona(personaEjemplo));
 
