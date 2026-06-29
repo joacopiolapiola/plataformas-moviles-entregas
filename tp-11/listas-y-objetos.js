@@ -49,10 +49,14 @@ console.log("ordenarPorApellido()", ordenarPorApellido(listaPersonasEjemplo));
  * - una lista de strings, con sólo los nombres de las personas
  */
 function soloNombres(listaDePersonas) {
-    // 
+    let nombres = [];
+
+    for (let i = 0; i < listaDePersonas.length; i++) {
+        nombres.push(listaDePersonas[i].nombre);
+    }
+    return nombres;
 }
 console.log("soloNombres()", soloNombres(listaPersonasEjemplo));
-
 /**
  * 03 - promedioEdades
  * 
