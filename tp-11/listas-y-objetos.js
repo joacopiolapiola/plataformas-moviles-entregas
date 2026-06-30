@@ -67,7 +67,13 @@ console.log("soloNombres()", soloNombres(listaPersonasEjemplo));
  * - un numero, con el cálculo del promedio de las edades
  */
 function promedioEdades(listaDePersonas) {
-    //
+        let promedio = 0;
+    for (let i = 0; i < listaDePersonas.length; i++) {
+        promedio=+listaDePersonas[i].edad;
+    }
+    promedio=promedio/listaDePersonas.length;
+    return promedio;
+}
 }
 console.log("promedioEdades()", promedioEdades(listaPersonasEjemplo));
 
