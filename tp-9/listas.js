@@ -35,13 +35,9 @@ console.log("invertirLista([2,3,4]): ", invertirLista([2,3,4]))
  */
 function sumarLista(listaDeNumeros) {
   let acum=0;
-  
-  for(let i=0;i>listaDeNumeros.len;i++){
-  
+  for(let i=0;i<listaDeNumeros.length;i++){
     acum=acum+listaDeNumeros[i];
-    
   }
-  
   return acum;
 }
 console.log("sumarLista([2,3,4]): ", sumarLista([2,3,4]))
@@ -62,7 +58,7 @@ console.log("sumarLista([2,3,4]): ", sumarLista([2,3,4]))
  * - contarElementosLista([]) retorna 0
  */
 function contarElementosLista(listaDeNumeros) {
-    return listaDeNumeros.len;
+    return listaDeNumeros.length;
 }
 console.log("contarElementosLista([2,3,4]): ", contarElementosLista([2,3,4]))
 
@@ -81,12 +77,11 @@ console.log("contarElementosLista([2,3,4]): ", contarElementosLista([2,3,4]))
  */
 function calcularPromedio(listaDeNumeros) {
    let acum=0;
-  for(let i=0;i>listaDeNumeros.len;i++){
-  
+  for(let i=0;i<listaDeNumeros.length;i++){
     acum=acum+listaDeNumeros[i];
-    
   } 
-  return acum/listaDeNumeros.len;
+  acum=acum/listaDeNumeros.length;
+  return acum;
   
 }
 console.log("calcularPromedio([2,3,4]): ", calcularPromedio([2,3,4]))
@@ -103,11 +98,11 @@ console.log("calcularPromedio(listaNumerosEjemplo): ", calcularPromedio(listaNum
  * - una lista de números donde cada elemento es el triple del valor original.
  * 
  * Ejemplos:
- * - triplicarLista([1, 2, 3]) retorna [3, 6, 9]
+ * - triplicarLista([1, 2, 3]) retorna [3, 6, 9
  */
 function triplicarLista(listaDeNumeros) {
   let lista=[];  
-  for(let i=0;i>listaDeNumeros.len;i++){
+  for(let i=0;i<listaDeNumeros.length;i++){
   
     lista[i]=listaDeNumeros[i]*3;
     
@@ -134,7 +129,7 @@ console.log("triplicarLista([1, 2, 3]): ", triplicarLista([1, 2, 3]));
  */
 function crearListaDeNumeros(inicio, fin) {
   let lista=[];  
-  for(let i=inicio;i=fin;i++){
+  for(let i=inicio;i<fin+1;i++){
       lista.push(i);
     }
   return lista;
@@ -155,7 +150,17 @@ console.log("crearListaDeNumeros(2,5): ", crearListaDeNumeros(2,5))
  * - ordenarDeMayorAMenor([2,-1,4]) retorna [4,2,-1]
  */
 function ordenarDeMayorAMenor(listaDeNumeros) {
-    return listaDeNumeros.sort((a, b) => a - b);
+temp=0;
+    for(let i=0;i<listaDeNumeros.length;i++){
+        for(let j=0;j<listaDeNumeros.length;j++){
+            if(listaDeNumeros[j]<listaDeNumeros[j+1]){
+                temp=listaDeNumeros[j];
+                listaDeNumeros[j] = listaDeNumeros[j + 1];
+                listaDeNumeros[j + 1] = temp;
+            }
+        }
+    }
+    return listaDeNumeros;
 }
 console.log("ordenarDeMayorAMenor([2,3,4]): ", ordenarDeMayorAMenor([2,3,4]))
 console.log("ordenarDeMayorAMenor(listaNumerosEjemplo): ", ordenarDeMayorAMenor(listaNumerosEjemplo))
@@ -175,7 +180,7 @@ console.log("ordenarDeMayorAMenor(listaNumerosEjemplo): ", ordenarDeMayorAMenor(
  */
 function encontrarNumeroMayor(listaDeNumeros) {
     let cont=0;
-  for(let i=0;i=listaDeNumeros.len;i++){
+  for(let i=0;i<listaDeNumeros.length;i++){
     if(cont<listaDeNumeros[i]){
       cont=listaDeNumeros[i];
     }
@@ -199,8 +204,23 @@ console.log("encontrarNumeroMayor(listaNumerosEjemplo): ", encontrarNumeroMayor(
  * - ordenarPalabrasPorLongitud(['abc', 'a', 'ab']) retorna ['a', 'ab', 'abc']
  */
 function ordenarPalabrasPorLongitud(listaDePalabras) {
-return listaDePalabras.sort((a, b) => b.length - a.length);
+temp="";
+    for(let i=0;i<listaDePalabras.length;i++){
+        for(let j=0;j<listaDePalabras.length;j++){
+            try {
+                if(listaDePalabras[j].length>listaDePalabras[j+1].length){
+                temp=listaDePalabras[j];
+                listaDePalabras[j] = listaDePalabras[j + 1];
+                listaDePalabras[j + 1] = temp;
+            }
+            } catch (TypeError) {
+                break;
+            }
+        }
+    }
+    return listaDePalabras;
 }
+
 console.log("ordenarPalabrasPorLongitud(['abc', 'a', 'ab']): ", ordenarPalabrasPorLongitud(['abc', 'a', 'ab']))
 
 
@@ -217,11 +237,11 @@ console.log("ordenarPalabrasPorLongitud(['abc', 'a', 'ab']): ", ordenarPalabrasP
  * - encontrarPalabraMasCorta(['abc', 'a', 'ab', 'c']) retorna 'a'
  */
 function encontrarPalabraMasCorta(listaDePalabras) {
-    let cont="";
-  for(let i=0; i=listaDePalabras.len; i++){
-    
-    if(listaDePalabras[i].length<cont.length){
+    let cont="caca";
+  for(let i=0; i<listaDePalabras.length; i++){
+    if(listaDePalabras[i].length < cont.length){
       cont=listaDePalabras[i];
+      console.log(cont);
     }
   }
   return cont;
@@ -243,7 +263,12 @@ console.log("encontrarPalabraMasCorta(['abc', 'a', 'ab']): ", encontrarPalabraMa
  */
 function filtrarSoloPositivos(listaDeNumeros) {
     lista=[];
-  
+  for(let i=0;i<listaDeNumeros.length;i++){
+    if(listaDeNumeros[i]>=0){
+      lista.push(listaDeNumeros[i]);
+    }
+  }
+  return lista;
 }
 console.log("filtrarSoloPositivos([1,-1,0]): ", filtrarSoloPositivos([1,-1,0]))
 console.log("filtrarSoloPositivos(listaNumerosEjemplo): ", filtrarSoloPositivos(listaNumerosEjemplo))
@@ -262,7 +287,13 @@ console.log("filtrarSoloPositivos(listaNumerosEjemplo): ", filtrarSoloPositivos(
  * - contarAprobados([10,2,9]) retorna 2
  */
 function contarAprobados(listaDeNotas) {
-    //
+    acum=0;
+    for (let index = 0; index < listaDeNotas.length; index++) {
+        if (listaDeNotas[index]>=7) {
+         acum=acum+1;   
+        }
+    }
+    return acum;
 }
 console.log("contarAprobados([10, 4, 6, 7, 1, 9]): ", contarAprobados([10, 4, 6, 7, 1, 9]))
 
@@ -280,7 +311,13 @@ console.log("contarAprobados([10, 4, 6, 7, 1, 9]): ", contarAprobados([10, 4, 6,
  * - filtrarSoloTruthy(["Hola", "", 0, 1]) retorna ["Hola", 1]
  */
 function filtrarSoloTruthy(listaDeValores) {
-    // 
+    lista=[];
+    for (let index = 0; index < listaDeValores.length; index++) {
+        if(listaDeValores[index]){
+            lista.push(listaDeValores[index]);
+        }
+    }
+    return lista;
 }
 console.log("filtrarSoloTruthy(): ", filtrarSoloTruthy(["Hola", "", null, 1, 0, -1, undefined, [], {}]))
 
@@ -297,6 +334,13 @@ console.log("filtrarSoloTruthy(): ", filtrarSoloTruthy(["Hola", "", null, 1, 0, 
  * - enumerarLista(["Han", "Leia", "Luke", "Yoda"]) "Han, Leia, Luke y Yoda."
  */
 function enumerarLista(listaDePalabras) {
-    //
+    for (let index = 0; index < listaDePalabras.length; index++) {
+        if (index = listaDePalabras.length-1) {
+            listaDePalabras[index]= "y " + listaDePalabras[index]; 
+        }else{
+            listaDePalabras[index]=listaDePalabras[index] + ",";
+        }
+    }
+    return listaDePalabras;
 }
 console.log("enumerarLista(): ", enumerarLista(["Han", "Leia", "Luke", "Yoda"]))
