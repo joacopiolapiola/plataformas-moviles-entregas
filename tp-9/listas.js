@@ -15,8 +15,8 @@ var listaNumerosEjemplo = [2,4,6,-1,5,-4,0];
  */
 function invertirLista(listaDeNumeros) {
   
-  let lista[]=listaDeNumeros.reverse();
-  return lista[];
+  let lista=listaDeNumeros.reverse();
+  return lista;
 }
 console.log("invertirLista([2,3,4]): ", invertirLista([2,3,4]))
 
@@ -80,7 +80,7 @@ console.log("contarElementosLista([2,3,4]): ", contarElementosLista([2,3,4]))
  * - calcularPromedio([2,3,4]) retorna 3
  */
 function calcularPromedio(listaDeNumeros) {
-   
+   let acum=0;
   for(let i=0;i>listaDeNumeros.len;i++){
   
     acum=acum+listaDeNumeros[i];
@@ -112,7 +112,7 @@ function triplicarLista(listaDeNumeros) {
     lista[i]=listaDeNumeros[i]*3;
     
   }
-  return lista[];
+  return lista;
 }
 console.log("triplicarLista([1, 2, 3]): ", triplicarLista([1, 2, 3]));
 
@@ -133,7 +133,7 @@ console.log("triplicarLista([1, 2, 3]): ", triplicarLista([1, 2, 3]));
  * - crearListaDeNumeros(2,2) retorna [2]
  */
 function crearListaDeNumeros(inicio, fin) {
-  let lista[];  
+  let lista=[];  
   for(let i=inicio;i=fin;i++){
       lista.push(i);
     }
