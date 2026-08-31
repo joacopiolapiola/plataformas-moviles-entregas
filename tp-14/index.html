@@ -12,15 +12,19 @@
         <div class="card">
             <div class="card-body">
                 <h2>Contactos</h2>
-
-                <ul id="lista-contactos"></ul>
+                <select name="sort" id="" class="form-select">
+                    <option value="skibidiii" class="option">Por apellido</option>
+                    <option value="skibidiii" class="option">Por nombre</option>
+                    <option value="skibidiii" class="option">Favoritos</option>
+                </select>
+                <ul id="lista-contactos" class="list-group"></ul>
 
                 <hr class="hr">
-
                 <h2>Nuevo Contacto</h2>
-                <form id="form-producto">
+                <form id="form-Contacto">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="nombre" id="input-nombre" placeholder="Nombre" aria-label="Nombre">
+                        <input type="text" class="form-control" name="numero" id="input-nombre" placeholder="+54" aria-label="Numero">
                         <input type="text" class="form-control" name="apellido" id="input-apellido" placeholder="Apellido" aria-label="Apellido">
                     </div>
                     <button class="btn btn-primary" type="submit">Agregar Contacto</button>
@@ -30,6 +34,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
         let contactos = [
             {
@@ -37,38 +42,84 @@
                 apellido: 'Perez',
             },
         ];
-
+    
         /**
          * agregarContacto()
-         * esta función se va a llamar cuando el usuario envía el formulario con el nuevo contacto para agregar.
+         * Agrega un nuevo contacto al DOM.
          */
         function agregarContacto(nombre, apellido) {
-            // su implementación
+            const listaContactos = document.getElementById('lista-contactos');
+    
+            const contacto = document.createElement('li');
+            contacto.classList.add('list-group-item','d-flex','justify-content-between','align-items-center');
+    
+            //text node previene inyecciones
+            const textoContacto = document.createTextNode(
+                `Nombre:   ${nombre}    Apellido:  ${apellido}`
+            );
+    
+            const eliminarContacto = document.createElement('button');
+            eliminarContacto.type = 'button';
+            eliminarContacto.textContent = 'Eliminar';
+            eliminarContacto.classList.add('btn', 'btn-danger', 'btn-sm');
+    
+            eliminarContacto.addEventListener('click', function () {
+                listaContactos.removeChild(contacto);
+            });
+    
+            contacto.appendChild(textoContacto);
+            contacto.appendChild(eliminarContacto);
+    
+            listaContactos.appendChild(contacto);
         }
-
+    
         /**
          * mostrarListado()
-         * esta función se encarga de mostrar en el DOM la lista de todos los contactos guardados en la variable global contactos.
+         * Muestra todos los contactos guardados.
          */
-        function mostrarListado() {
-            // su implementación
+        function mostrarListado(sort) {
+            const listaContactos = document.getElementById('lista-contactos');
+    
+            // Limpiamos la lista antes de mostrarla
+            listaContactos.innerHTML = '';
+    
+            contactos.forEach(function (contacto) {
+                agregarContacto(contacto.nombre, contacto.apellido);
+            });
         }
-
+    
         function handlerFormulario(e) {
             e.preventDefault();
+    
             const inputNombre = e.target.querySelector('#input-nombre');
             const inputApellido = e.target.querySelector('#input-apellido');
-
-            const nombre = inputNombre.value;
-            const apellido = inputApellido.value;
-
-            inputNombre.value = "";
-            inputApellido.value = "";
-
+    
+            const nombre = inputNombre.value.trim();
+            const apellido = inputApellido.value.trim();
+    
+            if (nombre === '' || apellido === '') {
+                return;
+            }
+    
+            inputNombre.value = '';
+            inputApellido.value = '';
+    
+            // Guardamos el contacto en el array
+            contactos.push({
+                nombre: nombre,
+                apellido: apellido,
+            });
+    
+            // Lo mostramos en la lista
             agregarContacto(nombre, apellido);
         }
-
-        document.querySelector('form').addEventListener('submit', handlerFormulario);
+    
+        document
+            .querySelector('#form-Contacto')
+            .addEventListener('submit', handlerFormulario);
+    
+        // Mostrar los contactos iniciales
+        
     </script>
 </body>
 </html>
