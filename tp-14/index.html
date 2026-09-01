@@ -25,7 +25,8 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="nombre" id="input-nombre" placeholder="Nombre" aria-label="Nombre">
                         <input type="text" class="form-control" name="apellido" id="input-apellido" placeholder="Apellido" aria-label="Apellido">
-                        <input type="text" class="form-control" name="numero" id="input-nombre" placeholder="+54" aria-label="Numero">
+                        <hr>
+                        <input type="text" class="form-control" name="numero" id="input-numero" placeholder="+54" aria-label="Numero">
                     </div>
                     <button class="btn btn-primary" type="submit">Agregar Contacto</button>
                 </form>
@@ -90,7 +91,6 @@
          * Muestra todos los contactos guardados.
          */
         function mostrarListado(sort) {
-            console.log("temonnnn");
             const listaContactos = document.getElementById('lista-contactos');
     
             // Limpiamos la lista antes de mostrarla
@@ -105,9 +105,10 @@
             e.preventDefault();
             const inputNombre = e.target.querySelector('#input-nombre');
             const inputApellido = e.target.querySelector('#input-apellido');
-    
+            const inputNumero = e.target.querySelector('#input-numero');
             const nombre = inputNombre.value.trim();
             const apellido = inputApellido.value.trim();
+            const numero = inputNumero.value.trim();
     
             if (nombre === '' || apellido === '') {
                 return;
@@ -120,6 +121,7 @@
             contactos.push({
                 nombre: nombre,
                 apellido: apellido,
+                numero: numero,
                 favorito: false,
             });
         }
