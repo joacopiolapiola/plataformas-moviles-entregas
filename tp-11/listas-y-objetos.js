@@ -35,7 +35,19 @@ var listaPersonasEjemplo = [
  * - el mismo listado, ordenado alfabéticamente por el apellido de la persona 
  */
 function ordenarPorApellido(listaDePersonas) {
-    // 
+    const lista = structuredClone(listaDePersonas);
+    for (let i = 0; i < lista.length; i++) {
+        for (let j = i + 1; j < lista.length; j++) {
+            if (lista[i].apellido > lista[j].apellido) {
+                const temporal = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temporal;
+            }
+
+        }
+    }
+
+    return lista;
 }
 console.log("ordenarPorApellido()", ordenarPorApellido(listaPersonasEjemplo));
 
@@ -74,7 +86,7 @@ function promedioEdades(listaDePersonas) {
     promedio=promedio/listaDePersonas.length;
     return promedio;
 }
-}
+
 console.log("promedioEdades()", promedioEdades(listaPersonasEjemplo));
 
 /**
@@ -87,7 +99,11 @@ console.log("promedioEdades()", promedioEdades(listaPersonasEjemplo));
  * - una nueva lista, donde la edad de cada persona se incrementa en 1.
  */
 function cumplirAños(listaDePersonas) {
-    //
+    const lista = structuredClone(listaDePersonas);
+    lista.forEach(persona => {
+        persona.edad+=1;
+    });
+    return lista;
 }
 console.log("cumplirAños()", cumplirAños(listaPersonasEjemplo));
 
@@ -101,7 +117,13 @@ console.log("cumplirAños()", cumplirAños(listaPersonasEjemplo));
  * - una lista, array, conteniendo solamente las personas con más de 18 años
  */
 function soloMayoresDeEdad(listaDePersonas) {
-    //
+    let mayores = [];
+    for (let index = 0; index < listaDePersonas.length; index++) {
+        if (listaDePersonas[index].edad >= 18) {
+            mayores.push(listaDePersonas[index]);
+        }
+    }
+    return mayores;
 }
 console.log("soloMayoresDeEdad()", soloMayoresDeEdad(listaPersonasEjemplo));
 
@@ -115,8 +137,15 @@ console.log("soloMayoresDeEdad()", soloMayoresDeEdad(listaPersonasEjemplo));
  * - una objeto con la persona de mayor edad en todo el listado. En caso de que hayan 2 personas con la misma edad, se puede retornar la primera que aparezca en el listado.
  */
 function laPersonaMayor(listaDePersonas) {
-    //
+        let mayor = {"edad" : 0};
+    for (let index = 0; index < listaDePersonas.length; index++) {
+        if (listaDePersonas[index].edad > mayor.edad) {
+            mayor[0] = listaDePersonas[index];
+        }
+    }
+    return mayor[0];
 }
+
 console.log("laPersonaMayor()", laPersonaMayor(listaPersonasEjemplo));
 
 /**
@@ -130,6 +159,13 @@ console.log("laPersonaMayor()", laPersonaMayor(listaPersonasEjemplo));
  * - una nueva lista, donde a cada persona se le agrega un campo `heladoFavorito` tomado de la lista de listaDeHelados. Si no hay más helados disponibles, se asigna "vainilla" por defecto.
  */
 function agregarHeladoFavorito(listaDePersonas, listaDeHelados) {
-    // 
+    for (let index = 0; index < listaDePersonas.length; index++) {
+        if (!listaDeHelados[index]) {
+            listaDePersonas[index].heladoFavorito = "vainilla";
+        }else{
+            listaDePersonas[index].heladoFavorito = listaDeHelados[index];
+        }
+    }
+    return listaDePersonas;
 }
 console.log("agregarHeladoFavorito()", agregarHeladoFavorito(listaPersonasEjemplo, ["chocolate", "limon", "frutilla"]));
