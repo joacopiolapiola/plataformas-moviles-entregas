@@ -4,132 +4,365 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lista de Contactos - DOM y JavaScript</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
+
 <body>
+
     <div class="container my-1 my-sm-2 my-md-4 my-lg-5">
+
         <h1>Lista de Contactos</h1>
+
         <div class="card">
+
             <div class="card-body">
+
                 <h2>Contactos</h2>
-                    <select name="sort" id="sorting" class="form-select" placeholder="↑↓">
-                        <option value="apellido" class="option">Por apellido </option>
-                        <option value="nombre" class="option">Por nombre</option>
-                        <option value="favs" class="option">Favoritos</option>
-                    </select>
+
+                <select name="sort" id="sorting" class="form-select" placeholder="↑↓">
+                    <option value="apellido" class="option">Por apellido</option>
+                    <option value="nombre" class="option">Por nombre</option>
+                    <option value="favs" class="option">Favoritos</option>
+                </select>
+
                 <ul id="lista-contactos" class="list-group"></ul>
 
                 <hr class="hr">
+
                 <h2>Nuevo Contacto</h2>
+
                 <form id="form-Contacto">
+
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="nombre" id="input-nombre" placeholder="Nombre" aria-label="Nombre">
-                        <input type="text" class="form-control" name="apellido" id="input-apellido" placeholder="Apellido" aria-label="Apellido">
+
+                        <input type="text"
+                               class="form-control"
+                               name="nombre"
+                               id="input-nombre"
+                               placeholder="Nombre"
+                               aria-label="Nombre">
+
+                        <input type="text"
+                               class="form-control"
+                               name="apellido"
+                               id="input-apellido"
+                               placeholder="Apellido"
+                               aria-label="Apellido">
+
                         <hr>
-                        <input type="text" class="form-control" name="numero" id="input-numero" placeholder="+54" aria-label="Numero">
+
+                        <input type="text"
+                               class="form-control"
+                               name="numero"
+                               id="input-numero"
+                               placeholder="+54"
+                               aria-label="Numero">
+
                     </div>
-                    <button class="btn btn-primary" type="submit">Agregar Contacto</button>
+
+                    <button class="btn btn-primary" type="submit">
+                        Agregar Contacto
+                    </button>
+
                 </form>
+
             </div>
+
         </div>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+
+        let primeravez = false;
+
         const dropdown = document.getElementById('sorting');
+
         let contactos = [
+
             {
                 nombre: 'Juan',
                 apellido: 'Perez',
-                favorito: false,
+                favorito: "false",
             },
+
+            {
+                nombre: 'juanpi',
+                apellido: 'pablo',
+                favorito: "true",
+            },
+
+            {
+                nombre: 'skibidi',
+                apellido: 'gomez',
+                favorito: "false",
+            }
+
         ];
-    
-        /**
-         * agregarContacto()
-         * Agrega un nuevo contacto al DOM.
-         */
+
+
+        let ordenapellidos = [];
+        let ordenanombre = [];
+
+
         function agregarContacto(nombre, apellido) {
-            const listaContactos = document.getElementById('lista-contactos');
-    
+
+            const listaContactos =
+                document.getElementById('lista-contactos');
+
+
             const contacto = document.createElement('li');
-            contacto.classList.add('list-group-item','d-flex','justify-content-between','align-items-center');
-    
-            //text node previene inyecciones
+
+            contacto.classList.add(
+                'list-group-item',
+                'd-flex',
+                'justify-content-between',
+                'align-items-center'
+            );
+
+
+            // Text node previene inyecciones
             const textoContacto = document.createTextNode(
                 `Nombre:   ${nombre}    Apellido:  ${apellido}`
             );
-    
+
+
             const eliminarContacto = document.createElement('button');
+
             eliminarContacto.type = 'button';
+
             eliminarContacto.textContent = 'Eliminar';
-            eliminarContacto.classList.add('btn', 'btn-danger', 'btn-sm');
+
+            eliminarContacto.classList.add(
+                'btn',
+                'btn-danger',
+                'btn-sm'
+            );
+
 
             const favoritoContacto = document.createElement('button');
+
             favoritoContacto.type = 'button';
-            favoritoContacto.textContent = '⭐';
-            favoritoContacto.classList.add('btn', 'bg-transparent', 'btn-sm');
-    
+
+            favoritoContacto.textContent = '⭐ajsdasj';
+
+            favoritoContacto.classList.add(
+                'btn',
+                'bg-transparent',
+                'btn-sm'
+            );
+
+
             eliminarContacto.addEventListener('click', function () {
                 listaContactos.removeChild(contacto);
             });
-    
+
+
             favoritoContacto.addEventListener('click', function () {
-                contacto[favorito] = true;
+                contacto.favorito = "true";
             });
+
 
             contacto.appendChild(textoContacto);
             contacto.appendChild(favoritoContacto);
             contacto.appendChild(eliminarContacto);
-    
+
             listaContactos.appendChild(contacto);
         }
-    
-        /**
-         * mostrarListado()
-         * Muestra todos los contactos guardados.
-         */
+
+
         function mostrarListado(sort) {
+
+            const favoritoContactox = document.getElementById('favoritoContacto');
             const listaContactos = document.getElementById('lista-contactos');
-    
+
+
             // Limpiamos la lista antes de mostrarla
             listaContactos.innerHTML = '';
-    
-            contactos.forEach(function (contacto) {
-                agregarContacto(contacto.nombre, contacto.apellido, contacto.favorito);
-            });
+
+
+            if (sort == "apellido") {
+
+                // Si el indice no está actualizado,
+                if (ordenapellidos.length != contactos.length) {
+
+                    ordenapellidos = [];
+
+                    for (let j = 0; j < contactos.length; j++) {
+                        ordenapellidos.push(j);
+                    }
+
+
+                    ordenapellidos.sort((a, b) => {
+                        return contactos[a].apellido.localeCompare(
+                            contactos[b].apellido
+                        );
+                    });
+                }
+
+
+                for (let i = 0; i < ordenapellidos.length; i++) {
+
+                    let contacto =
+                        contactos[ordenapellidos[i]];
+
+
+                    agregarContacto(
+                        contacto.nombre,
+                        contacto.apellido
+                    );
+
+                }
+
+            }
+
+
+
+            else if (sort == "nombre") {
+
+                // Si el índice no esta actualizado,
+
+                if (ordenanombre.length != contactos.length) {
+
+                    ordenanombre = [];
+
+                    for (let j = 0; j < contactos.length; j++) {
+
+                        ordenanombre.push(j);
+
+                    }
+
+
+                    ordenanombre.sort((a, b) => {
+
+                        return contactos[a].nombre.localeCompare(
+                            contactos[b].nombre
+                        );
+
+                    });
+
+                }
+
+
+                for (let i = 0; i < ordenanombre.length; i++) {
+
+                    let contacto =
+                        contactos[ordenanombre[i]];
+
+
+                    agregarContacto(
+                        contacto.nombre,
+                        contacto.apellido
+                    );
+
+                }
+
+            }
+
+
+
+            else if (sort == "favs") {
+                contactos.forEach(function (contacto) {
+                    if (contacto.favorito == "true") {
+                        agregarContacto(
+                            contacto.nombre,
+                            contacto.apellido
+                        );
+                    }
+                });
+            }
+
+            else {
+                contactos.forEach(function (contacto) {
+
+                    agregarContacto(
+                        contacto.nombre,
+                        contacto.apellido
+                    );
+
+                });
+
+            }
+
         }
-    
+
+
+        /**
+         * handlerFormulario()
+         * Agrega un nuevo contacto al array.
+         */
         function handlerFormulario(e) {
             e.preventDefault();
-            const inputNombre = e.target.querySelector('#input-nombre');
-            const inputApellido = e.target.querySelector('#input-apellido');
-            const inputNumero = e.target.querySelector('#input-numero');
-            const nombre = inputNombre.value.trim();
-            const apellido = inputApellido.value.trim();
-            const numero = inputNumero.value.trim();
-    
+            const inputNombre =
+                e.target.querySelector('#input-nombre');
+
+            const inputApellido =
+                e.target.querySelector('#input-apellido');
+
+            const inputNumero =
+                e.target.querySelector('#input-numero');
+
+
+            const nombre =
+                inputNombre.value.trim();
+
+            const apellido =
+                inputApellido.value.trim();
+
+            const numero =
+                inputNumero.value.trim();
+
             if (nombre === '' || apellido === '') {
                 return;
             }
-    
+
+
             inputNombre.value = '';
             inputApellido.value = '';
-    
-            // Guardamos el contacto en el array
+            inputNumero.value = '';
+
+
             contactos.push({
                 nombre: nombre,
                 apellido: apellido,
                 numero: numero,
-                favorito: false,
+                favorito: "false",
+
             });
+
+
+            ordenapellidos = [];
+            ordenanombre = [];
+
+
+            mostrarListado(dropdown.value);
+
         }
-    
-        document.querySelector('#form-Contacto').addEventListener('submit', handlerFormulario);
-    
-        
-        dropdown.addEventListener('change', mostrarListado);
+
+        document
+            .querySelector('#form-Contacto')
+            .addEventListener(
+                'submit',
+                handlerFormulario
+            );
+
+        dropdown.addEventListener(
+            'change',
+            function () {
+                mostrarListado(dropdown.value);
+            }
+        );
+
+        if (primeravez == false) {
+
+            mostrarListado();
+
+        }
+
     </script>
+
 </body>
 </html>
