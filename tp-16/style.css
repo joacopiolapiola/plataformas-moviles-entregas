@@ -3,6 +3,10 @@ body {
     text-align: center;
     item-align: center;
 }
+html{
+    background-color: rgb(50, 76, 124);
+}
+
 #foto {
     max-width: 60vw;
     max-height: 60vh;
