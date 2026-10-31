@@ -1,1 +1,21 @@
-body {background-color: cornflowerblue;}
+body {
+    background-color: rgb(50, 76, 124);
+    text-align: center;
+    item-align: center;
+}
+#foto {
+    max-width: 60vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+}
+
+section {
+text-align: center;
+align-items: center;
+}
+
+#Datos {
+    text-align: center;
+    align-items: center;
+}
