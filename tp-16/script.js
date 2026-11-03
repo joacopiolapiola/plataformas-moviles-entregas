@@ -17,18 +17,19 @@ function crearGato() {
 		})
 		.then(function(data) {
 			imagen.src = data.url;
+
 			if (data.tags.length === 0) {
 				var elemento = document.createElement("li");
 				elemento.className = "list-inline-item badge bg-secondary";
 				elemento.textContent = "Sin etiquetas";
 				lista.appendChild(elemento);
 			} else {
-				data.tags.forEach(function(tag) {
+				for (var i = 0; i < data.tags.length; i++) {
 					var elemento = document.createElement("li");
 					elemento.className = "list-inline-item badge bg-primary";
-					elemento.textContent = tag;
+					elemento.textContent = data.tags[i];
 					lista.appendChild(elemento);
-				});
+				}
 			}
 		})
 		.catch(function(error) {
